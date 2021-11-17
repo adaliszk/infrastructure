@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ce3f5be1-f074-44e6-a4bd-71d4c7487917" name="hosting164080.a2e16.netcup.net" url="https://adaliszk.at">
+        <fileTransfer rootFolder="/httpdocs" host="hosting164080.a2e16.netcup.net" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="a97ffbaa-ac44-401e-8e75-09899dfde7b5" name="netcup-devops">
+        <fileTransfer accessType="SFTP" host="netcup-devops" port="22" sshConfigId="20ab5f2a-e7da-45d0-8e36-142d4da227d4" sshConfig="root@netcup-devops:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

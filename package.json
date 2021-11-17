@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "version": "0.1.0",
+  "license": "BSD-3-Clause",
+  "name": "@adaliszk/infrastructure",
+  "description": "Personal infrastructure automation",
+  "repository": "gitlab:adaliszk/infrastructure.git",
+  "author": "Ádám Liszkai <adam@liszkai.dev>",
+  "workspaces": [
+    "deployments/*",
+    "environments/*",
+    "modules/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "bump": "yarn version --patch",
+    "minor-bump": "yarn version --minor",
+    "release": "semantic-release"
+  },
+  "peerDependencies": {
+    "semantic-release": "~18"
+  }
+}

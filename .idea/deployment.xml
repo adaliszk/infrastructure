@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="hosting164080.a2e16.netcup.net" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="hosting164080.a2e16.netcup.net">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/ignite" local="$PROJECT_DIR$/servers/netcup/dist" web="/ignite" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="netcup-devops">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

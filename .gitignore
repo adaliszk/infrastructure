@@ -1,0 +1,18 @@
+# IDE and Editors
+.idea/workspace.xml
+.vscode
+
+# Distribution
+**/dist
+**/.env
+.env
+
+# NPM
+**/node_modules
+node_modules
+
+# Temporary files
+**/.terraform
+**/.terraform.lock.hcl
+**/temp
+**.log
