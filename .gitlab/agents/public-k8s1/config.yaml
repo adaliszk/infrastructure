@@ -1,0 +1,5 @@
+gitops:
+  manifest_projects:
+    - id: adaliszk/infrastructure
+      paths:
+        - glob: '/deployments/*/public-k8s1/**/*.{yaml,yml}'
