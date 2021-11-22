@@ -5,9 +5,9 @@
   "repository": "gitlab:adaliszk/infrastructure",
   "author": "Ádám Liszkai <adam@liszkai.dev>",
   "scripts": {
-    "start": "yarn play dotenv.yml",
+    "start": "yarn play playbooks/dotenv.yml",
     "update": "ansible-galaxy collection install -r galaxy-packages.yml",
-    "deploy": "yarn play setup/server.yml",
+    "deploy": "yarn play playbooks/server.yml",
     "play": "opsx ansible-playbook"
   },
   "dependencies": {

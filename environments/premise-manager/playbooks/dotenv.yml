@@ -40,4 +40,4 @@
       ansible.builtin.template:
         backup: yes
         src: dotenv.j2
-        dest: .env
+        dest: ../.env
