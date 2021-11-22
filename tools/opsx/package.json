@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "@adaliszk/opsx",
+  "description": "Simple wrapper around GitOps commands to load .env files and auto-configure them",
+  "repository": "gitlab:adaliszk/infrastructure",
+  "author": "Ádám Liszkai <adam@liszkai.dev>",
+  "license": "BSD-3-Clause",
+  "bin": "lib/opsx.cjs",
+  "files": [
+    "lib/opsx.cjs"
+  ],
+  "scripts": {
+    "exec": "node lib/opsx.cjs"
+  },
+  "dependencies": {
+    "dotenv": "~10.0",
+    "process": "*"
+  }
+}
