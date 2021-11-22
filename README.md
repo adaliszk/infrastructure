@@ -9,17 +9,18 @@ environment, and automate their deployment via GitLab (for now).
 
 ## Prerequisites
 - [**yarn**](https://yarnpkg.com)  for managing the workspaces within the project
-- [**terraform**](https://terraform.io) for development so that you don't need the local packages
+- [**nodejs**](https://nodejs.org/en/download) for building and using helper tools
+- [**terraform**](https://terraform.io) for stateful deployments
+- [**ansible**](https://docs.ansible.com/ansible) for server configurations
 - [**docker**](https://docs.docker.com/get-docker) for building custom images
-- [**nodejs**](https://nodejs.org/en/download) for building helper tools
 
-### Project structure 
-- **/charts**: Helm charts for deploying Workloads
+## Project structure
 - **/containers**: Custom container Images using Docker
 - **/deployments**: Configuration and Automation for Workloads
 - **/environments**: Environment setups and Automation
+- **/helm-charts**: Helm charts for deploying Workloads
 - **/modules**: Re-usable modules for the environments
-- **/tools**: Local tooling for easier development
+- **/tools**: Utilities for easier development
 
 
 ## GitOps using GitLab
