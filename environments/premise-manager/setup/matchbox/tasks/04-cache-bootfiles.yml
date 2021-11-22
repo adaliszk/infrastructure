@@ -1,0 +1,12 @@
+---
+-
+  name: "Cache Fedora CoreOS v{{ coreos_version }} images"
+  ansible.builtin.get_url:
+    url: "{{ coreos_mirror }}/{{ coreos_version }}/{{ coreos_arch }}/fedora-coreos-{{ coreos_version }}-{{ item }}"
+    dest: "/srv/matchbox/assets/fedora-coreos/fedora-coreos-{{ coreos_version }}-{{ item }}"
+  with_items:
+    - "live-kernel-{{ coreos_arch }}"
+    - "live-initramfs.{{ coreos_arch }}.img"
+    - "live-rootfs.{{ coreos_arch }}.img"
+    - "metal.{{ coreos_arch }}.raw.xz.sig"
+    - "metal.{{ coreos_arch }}.raw.xz"

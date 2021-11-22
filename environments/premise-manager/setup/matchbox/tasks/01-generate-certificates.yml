@@ -1,0 +1,16 @@
+# language=ansible
+---
+-
+  name: "Set executable flag on scripts"
+  ansible.builtin.file:
+    path: "{{ mbpath }}/{{ item }}"
+    mode: +x
+  with_items:
+    - etc/generate-certs.sh
+-
+  name: "Generate certificates"
+  environment:
+    SAN: "DNS.1:{{ server_fqdn }},IP.1:{{ internal_ip }}"
+  ansible.builtin.command:
+    chdir: "{{ mbpath }}/etc"
+    cmd: ./generate-certs.sh

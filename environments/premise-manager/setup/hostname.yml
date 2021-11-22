@@ -1,0 +1,11 @@
+# language=ansible
+---
+- name: "Configure Hostname"
+  hosts: "*"
+  vars:
+    server_fqdn: "{{ lookup('env', 'PREMISE_SERVER_FQDN') | default('premise-manager.site.net', True) }}"
+  tasks:
+    -
+      name: "Set Hostname"
+      ansible.builtin.hostname:
+        name: "{{ server_fqdn }}"

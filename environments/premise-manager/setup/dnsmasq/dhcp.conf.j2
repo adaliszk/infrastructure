@@ -1,0 +1,8 @@
+domain=pk1.adaliszk.net,{{ internal_cidr | default('172.16.0.1/24', True) }}
+expand-hosts
+
+dhcp-range={{ internal_dhcp_range | default('172.16.0.64,172.16.0.254', True) }},30m
+
+dhcp-option=option:netmask,255.255.255.0
+dhcp-option=option:dns-server,{{ internal_ip | default('172.16.0.1', True) }},1.1.1.1
+dhcp-option=option:router

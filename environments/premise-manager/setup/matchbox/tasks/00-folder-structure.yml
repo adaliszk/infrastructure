@@ -1,0 +1,24 @@
+# language=ansible
+---
+-
+  name: "Create folder structure"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ mbpath }}"
+    - "{{ mbpath }}/assets"
+    - "{{ mbpath }}/assets/fedora-coreos"
+    - "{{ mbpath }}/groups"
+    - "{{ mbpath }}/ignition"
+    - "{{ mbpath }}/profiles"
+    - "{{ mbpath }}/keys"
+    - "{{ mbpath }}/etc"
+-
+  name: "Upload configuration files"
+  ansible.builtin.copy:
+    dest: "{{ mbpath }}/{{ item }}/"
+    src: "../{{ item }}/"
+  with_items:
+    - groups
+    - etc

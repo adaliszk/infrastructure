@@ -1,0 +1,9 @@
+# language=ansible
+---
+-
+  name: "Setup Fedora CoreOS install profile"
+  ansible.builtin.template:
+    dest: "{{ mbpath }}/profiles/{{ item }}.json"
+    src: ../profiles/{{ item }}.json.j2
+  with_items:
+    - fedora-coreos-install
