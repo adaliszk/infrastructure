@@ -1,11 +1,12 @@
 {
   "private": true,
+  "packageManager": "yarn@3.1.0",
   "version": "0.1.0",
-  "license": "BSD-3-Clause",
   "name": "@adaliszk/infrastructure",
   "description": "Personal infrastructure automation",
   "repository": "gitlab:adaliszk/infrastructure.git",
   "author": "Ádám Liszkai <adam@liszkai.dev>",
+  "license": "BSD-3-Clause",
   "workspaces": [
     "deployments/*",
     "environments/*",
@@ -15,7 +16,10 @@
   "scripts": {
     "bump": "yarn version --patch",
     "minor-bump": "yarn version --minor",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "opx": "yarn workspace @adaliszk/opx",
+    "premise": "yarn workspace @adaliszk/premise-manager-env",
+    "k8s": "yarn workspace @adaliszk/typhoon-kubernetes-env"
   },
   "peerDependencies": {
     "semantic-release": "~18"

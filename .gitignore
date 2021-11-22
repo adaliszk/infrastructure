@@ -7,12 +7,15 @@
 **/.env
 .env
 
-# NPM
+# NPM / Yarn
 **/node_modules
 node_modules
+.yarn
+.pnp*
 
 # Temporary files
 **/.terraform
 **/.terraform.lock.hcl
+**/.terraform.plan
 **/temp
 **.log
