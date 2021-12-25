@@ -22,9 +22,7 @@ for (let limit = 0; limit < 6; limit++) {
 // Load .env files
 
 const dotenv = require('dotenv')
-let collectedEnv = {
-    PATH: process.env.PATH,
-}
+let collectedEnv = {...process.env}
 
 for (const dotenvDir of [dir.root, dir.current]) {
     const dotenvFile = path.resolve(dotenvDir, '.env')
