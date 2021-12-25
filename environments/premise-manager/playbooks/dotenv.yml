@@ -39,5 +39,5 @@
     - name: "Generating .env file"
       ansible.builtin.template:
         backup: yes
-        src: dotenv.j2
+        src: ./dotenv/dotenv.j2
         dest: ../.env
