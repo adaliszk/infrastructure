@@ -5,14 +5,14 @@
 prepare-env:
   stage: prepare
   extends: [ .premise-pk1 ]
-    script:
-      - yarn
+  script:
+    - yarn
 
 
 prepare-pk1:
   stage: prepare
   extends: [ .premise-pk1 ]
-    needs: [ prepare-env ]
+  needs: [ prepare-env ]
   script:
     - yarn pk1 update
 
