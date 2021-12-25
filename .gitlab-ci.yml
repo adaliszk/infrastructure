@@ -1,5 +1,5 @@
 
-stages: [ lint, build, test, update, deploy ]
+stages: [ lint, prepare, build, test, push, plan, deploy ]
 
 include:
   - .gitlab/workflows/cd-public-k8s-01.yml

@@ -1,8 +1,17 @@
 .premise-pk1:
   tags: [ on-premise, pk1 ]
 
-test:automation-runner:
+
+prepare-pk1:
+  stage: prepare
   extends: [ .premise-pk1 ]
-  stage: test
   script:
-    - echo 'Hi Gitlab-CI!'
+    - yarn pk1 update
+
+
+plan-pk1:
+  stage: plan
+  extends: [ .premise-pk1 ]
+  needs: [ prepare-pk1 ]
+  script:
+    - yarn pk1 plan
