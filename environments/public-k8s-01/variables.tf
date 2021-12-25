@@ -11,6 +11,7 @@ variable "premise_user" {
 variable "premise_key" {
   type        = string
   description = "SSH Host private key"
+  default     = "/home/gitlab-runner/.ssh/id_ed25519"
 }
 
 
