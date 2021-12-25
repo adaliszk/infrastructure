@@ -1,0 +1,8 @@
+tags: [ on-premise, pk1 ]
+
+jobs:
+
+  hello:
+    stage: test
+    steps:
+      - run: echo 'Hi Gitlab-CI!'
