@@ -1,8 +1,6 @@
 tags: [ on-premise, pk1 ]
 
-jobs:
-
-  hello:
-    stage: test
-    script:
-      - echo 'Hi Gitlab-CI!'
+test:automation-runner:
+  stage: test
+  script:
+    - echo 'Hi Gitlab-CI!'
