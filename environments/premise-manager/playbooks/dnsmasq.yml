@@ -22,12 +22,6 @@
         - dhcp.conf
         - netboot.conf
     -
-      name: "Disable Systemd-Resolved"
-      ansible.builtin.systemd:
-        name: systemd-resolved
-        state: stopped
-        enabled: no
-    -
       name: "Run DNSMASQ container"
       containers.podman.podman_container:
         state: started
@@ -40,6 +34,11 @@
         cap_add:
           - NET_ADMIN
           - NET_RAW
-        cmd_args:
-          - --net=host
+        ports:
+          - "{{ internal_ip }}:53:53/tcp"
+          - "{{ internal_ip }}:53:53/udp"
+          - "{{ internal_ip }}:67:67/tcp"
+          - "{{ internal_ip }}:67:67/udp"
+          - "{{ internal_ip }}:69:69/tcp"
+          - "{{ internal_ip }}:69:69/udp"
 
