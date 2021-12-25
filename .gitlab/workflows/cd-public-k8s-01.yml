@@ -4,5 +4,5 @@ jobs:
 
   hello:
     stage: test
-    steps:
-      - run: echo 'Hi Gitlab-CI!'
+    script:
+      - echo 'Hi Gitlab-CI!'
