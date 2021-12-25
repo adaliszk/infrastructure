@@ -2,9 +2,17 @@
   tags: [ on-premise, pk1 ]
 
 
+prepare-env:
+  stage: prepare
+  extends: [ .premise-pk1 ]
+    script:
+      - yarn
+
+
 prepare-pk1:
   stage: prepare
   extends: [ .premise-pk1 ]
+    needs: [ prepare-env ]
   script:
     - yarn pk1 update
 
