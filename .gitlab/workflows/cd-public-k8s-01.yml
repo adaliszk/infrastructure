@@ -9,6 +9,10 @@ prepare-pk1:
   extends: [ .cd-pk1-defaults ]
   script:
     - yarn pk1 update
+  artifacts:
+    paths:
+      - "**/.terraform.lock.hcl"
+      - "**/.terraform/**/*"
 
 
 plan-pk1:
