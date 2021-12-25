@@ -1,6 +1,7 @@
-tags: [ on-premise, pk1 ]
+.premise-pk1: [ on-premise, pk1 ]
 
 test:automation-runner:
+  extends: [ .premise-pk1 ]
   stage: test
   script:
     - echo 'Hi Gitlab-CI!'
