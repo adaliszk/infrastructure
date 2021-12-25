@@ -1,4 +1,5 @@
-.premise-pk1: [ on-premise, pk1 ]
+.premise-pk1:
+  tags: [ on-premise, pk1 ]
 
 test:automation-runner:
   extends: [ .premise-pk1 ]
