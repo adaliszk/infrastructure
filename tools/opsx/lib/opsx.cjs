@@ -9,8 +9,7 @@ const path = require('path')
 const fs = require('fs')
 
 const dir = {current: process.cwd(), root: process.cwd()} // use for passing as reference
-for (let limit = 0; limit < 6; limit++)
-{
+for (let limit = 0; limit < 6; limit++) {
     const checkPath = path.resolve(dir.root, '..')
     const gitPath = path.resolve(checkPath, '.git')
     const gitFound = fs.existsSync(gitPath)
@@ -23,13 +22,27 @@ for (let limit = 0; limit < 6; limit++)
 // Load .env files
 
 const dotenv = require('dotenv')
-let collectedEnv = {}
+let collectedEnv = {
+    PATH: process.env.PATH,
+}
 
-for (const dotenvDir of [dir.root, dir.current])
-{
+for (const dotenvDir of [dir.root, dir.current]) {
     const dotenvFile = path.resolve(dotenvDir, '.env')
     const dotenvResult = dotenv.config({path: dotenvFile})
     collectedEnv = {...collectedEnv, ...dotenvResult.parsed}
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Parse package.json
+
+const pkgFile = path.resolve(dir.current, 'package.json')
+const pkg = fs.readFileSync(pkgFile)
+
+const useKeys = [
+    "name", "version", "description", "homepage", "bugs", "license", "repository"
+]
+for (const key of Object.keys(pkg).filter(k => (k in useKeys))) {
+
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -44,21 +57,20 @@ const exec = {
 }
 
 if (exec.command === 'terraform' && exec.action === 'init')
-    mapExtraArgs(/^TF_BACKEND_/i, '-backend-config="{attribute}={value}"', exec)
+    mapExtraArgs(/^TF_BACKEND_/i, '-backend-config={attribute}={value}')
 
 if (exec.command === 'ansible-playbook')
-    mapExtraArgs(/^ANSIBLE_HOSTS/i, '-i {value},', exec)
+    mapExtraArgs(/^ANSIBLE_HOSTS/i, '-i {value},')
 
 /**
  * @param {RegExp} varMatch filter for environment variable that is used to also map, example: /^MY_VAR_/i
  * @param {string} argument template for the argument; available variables: {attribute} {attr} {value}
- * @param {object} exec context passes as reference
  */
-function mapExtraArgs(varMatch, argument, exec)
-{
+function mapExtraArgs(varMatch, argument) {
     Object.keys(exec.env)
         .filter($var => $var.match(varMatch))
         .forEach(variable => {
+            let arg = argument
             const map = {
                 'attribute': variable.replace(varMatch, '').toLowerCase(),
                 'attr': variable.replace(varMatch, ''),
@@ -66,9 +78,9 @@ function mapExtraArgs(varMatch, argument, exec)
             }
 
             for (const property of Object.keys(map))
-                argument = argument.replace(`{${property}}`, map[property])
+                arg = arg.replace(`{${property}}`, map[property])
 
-            exec.args.push(argument)
+            exec.args.push(arg)
         })
 }
 

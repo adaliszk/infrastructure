@@ -10,10 +10,13 @@
     "lib/opsx.cjs"
   ],
   "scripts": {
-    "exec": "node lib/opsx.cjs"
+    "test": "node lib/opsx.cjs"
   },
   "dependencies": {
     "dotenv": "~10.0",
     "process": "*"
+  },
+  "devDependencies": {
+    "@adaliszk/typescript": "^4.5"
   }
 }
