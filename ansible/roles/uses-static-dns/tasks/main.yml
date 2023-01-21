@@ -1,0 +1,10 @@
+- name: "Stop Systemd-Resolved"
+  ansible.builtin.systemd:
+    name: systemd-resolved
+    state: stopped
+    enabled: no
+
+- name: "Set DNS resolution"
+  ansible.builtin.template:
+    src: debian/resolv.conf.j2
+    dest: /etc/resolv.conf

@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "@cwd/ansible",
+  "description": "Ansible configuration and playbooks to my environments",
+  "scripts": {
+    "play": "ansible-playbook -i hosts.ini"
+  }
+}

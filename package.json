@@ -1,22 +1,28 @@
 {
   "private": true,
-  "version": "0.1.0",
-  "packageManager": "yarn@3.1.0",
+  "packageManager": "yarn@3.3.1",
   "name": "@adaliszk/infrastructure",
-  "description": "Personal infrastructure automation",
+  "description": "Infrastructure configuration and setup via GitLab, Ansible, Flux, and Pulumi",
   "repository": "gitlab:adaliszk/infrastructure.git",
   "author": "Ádám Liszkai <adam@liszkai.dev>",
   "license": "BSD-3-Clause",
   "scripts": {
-    "opsx": "yarn workspace @adaliszk/opsx",
-    "prem": "yarn workspace @adaliszk/premise-manager-env",
-    "pk1": "yarn workspace @adaliszk/terraform-pk1-environment",
-    "typhoon": "yarn workspace @adaliszk/terraform-typhoon-bare-metal-cluster"
+    "ansible": "yarn workspace @cwd/ansible",
+    "k8s": "yarn workspace @cwd/clusters",
+    "changeset": "changeset",
+    "build": "turbo build"
+  },
+  "devDependencies": {
+    "@adaliszk/typescript": "latest",
+    "@changesets/cli": "latest",
+    "eslint": "latest",
+    "turbo": "latest",
+    "typescript": "latest"
   },
   "workspaces": [
-    "deployments/*",
-    "environments/*",
-    "modules/*",
-    "tools/*"
+    "ansible",
+    "clusters/*",
+    "images/*",
+    "packages/*"
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "@cwd/kubernetes",
+  "description": "Kubernetes setup for Web Deployments",
+  "scripts": {
+    "web-essentials": "yarn workspace @adaliszk/k8s-web-essentials"
+  },
+  "workspaces": [
+    "*"
+  ]
+}

@@ -1,0 +1,4 @@
+-
+  name: "Configure Hostname"
+  ansible.builtin.hostname:
+    name: "{{ host_fqdn }}"

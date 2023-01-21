@@ -1,0 +1,6 @@
+-
+  name: "Public Kubernetes Setup"
+  hosts: "public_k8s1"
+  roles:
+    - uses-static-dns
+    - uses-fqdn
