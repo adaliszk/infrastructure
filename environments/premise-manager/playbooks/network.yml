@@ -1,9 +1,0 @@
-# language=ansible
----
-- name: "Configure Network"
-  hosts: "*"
-  vars:
-    internal_cidr: "{{ lookup('env', 'PREMISE_INTERNAL_CIDR') }}"
-    internal_ip: "{{ lookup('env', 'PREMISE_INTERNAL_IP') }}"
-  tasks:
-    - include_tasks: "network/{{ ansible_os_family }}/config.yml"

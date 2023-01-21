@@ -1,8 +1,0 @@
-# language=ansible
----
--
-  name: "Install podman package"
-  ansible.builtin.apt:
-    update_cache: yes
-    state: latest
-    name: podman

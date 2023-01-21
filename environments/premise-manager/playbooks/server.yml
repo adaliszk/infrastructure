@@ -1,7 +1,0 @@
-# language=ansible
----
-- import_playbook: hostname.yml
-- import_playbook: network.yml
-- import_playbook: podman.yml
-- import_playbook: dnsmasq.yml
-- import_playbook: matchbox.yml

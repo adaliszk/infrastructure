@@ -1,7 +1,0 @@
-# language=ansible
----
-- name: "Setup Container Runner"
-  hosts: "*"
-  tasks:
-    - include_tasks: "podman/{{ ansible_os_family }}/install.yml"
-

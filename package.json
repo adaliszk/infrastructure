@@ -10,8 +10,8 @@
   "scripts": {
     "opsx": "yarn workspace @adaliszk/opsx",
     "prem": "yarn workspace @adaliszk/premise-manager-env",
-    "pk1": "yarn workspace @adaliszk/terraform-public-k8s-01",
-    "remote-data": "yarn workspace @adaliszk/terraform-module-remote-data"
+    "pk1": "yarn workspace @adaliszk/terraform-pk1-environment",
+    "typhoon": "yarn workspace @adaliszk/terraform-typhoon-bare-metal-cluster"
   },
   "workspaces": [
     "deployments/*",

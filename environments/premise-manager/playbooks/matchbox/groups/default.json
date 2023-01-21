@@ -1,7 +1,0 @@
-{
-  "id": "default",
-  "name": "Fedora CoreOS install",
-  "profile": "fedora-coreos-install",
-  "selector": {},
-  "metadata": {}
-}
