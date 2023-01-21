@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "name": "@adaliszk/opsx",
+  "repository": "gitlab:adaliszk/infrastructure",
+  "author": "Ádám Liszkai <adam@liszkai.dev>",
+  "license": "BSD-3-Clause",
+  "bin": "dist/opsx.js",
+  "files": [
+    "dist/*",
+    "*.md"
+  ],
+  "scripts": {
+    "build": "tsup source/opsx.ts --format cjs --sourcemap --minify --dts"
+  },
+  "dependencies": {
+    "dotenv": "^16.0"
+  },
+  "devDependencies": {
+    "@adaliszk/typescript": "latest",
+    "@swc/core": "latest",
+    "eslint": "latest",
+    "tsup": "latest",
+    "typescript": "latest"
+  },
+  "keywords": [
+    "gitops",
+    "cli"
+  ]
+}

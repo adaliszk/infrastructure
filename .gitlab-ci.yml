@@ -1,0 +1,10 @@
+stages:
+  - prepare
+  - lint
+  - build
+  - publish
+  - deploy
+  - reset
+
+include:
+  -

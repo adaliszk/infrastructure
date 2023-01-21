@@ -10,7 +10,8 @@
     "ansible": "yarn workspace @cwd/ansible",
     "k8s": "yarn workspace @cwd/clusters",
     "changeset": "changeset",
-    "build": "turbo build"
+    "build": "turbo build",
+    "push": "turbo push"
   },
   "devDependencies": {
     "@adaliszk/typescript": "latest",
@@ -22,7 +23,10 @@
   "workspaces": [
     "ansible",
     "clusters/*",
+    "clusters",
     "images/*",
-    "packages/*"
+    "images",
+    "packages/*",
+    "packages"
   ]
 }

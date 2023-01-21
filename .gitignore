@@ -10,6 +10,8 @@
 # NPM / Yarn
 **/node_modules
 node_modules
+**/.turbo
+.turbo
 
 # Temporary files
 **/.terraform
