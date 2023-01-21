@@ -1,4 +1,4 @@
-_Infrastructure configuration and setup via GitLab, Ansible, and Pulumi_
+_Infrastructure configuration and setup via GitLab, Ansible, Flux, and Pulumi_
 
 # Infrastructure
 
@@ -18,55 +18,54 @@ with deep and accurate testing support.
 ## Prerequisites
 
 - [**yarn**](https://yarnpkg.com)  for managing the workspaces within the project
-- [**nodejs**](https://nodejs.org/en/download) for building and using helper tools
 - [**ansible**](https://docs.ansible.com/ansible) for server configurations
+- [**flux**](https://fluxcd.io/flux/installation) as gitops automation for all environments
+- [**gitlab**](https://about.gitlab.com/features/continuous-integration) as gitops automation for packages
 - [**docker**](https://docs.docker.com/get-docker) for building custom images
 - [**pulumi**](https://www.pulumi.com/docs/get-started/install) for deployment automation
-- [**changesets**](https://github.com/changesets/changesets) as versioning and publishing tool
-- [**turbo**](https://turbo.build/repo/docs) as the monorepo orchestrator
 
 ## Structure
 
+- **/ansible**: ansible playbooks for bootstrapping servers
 - **/images**: unofficial docker images to help cloud environments
+- **/clusters**: environment configurations for shared resources
 - **/packages**: deployment packages to orchestrate environments
-- **/environments**: environment configurations for shared resources
-- **/servers**: ansible playbooks for bootstrapping servers
 
-## GitOps using GitLab
+## GitOps
 
-Custom resources are located in `./environments/<name>/resources` folder as Kubernetes YAML files.  
-For the most part this is only used to initialize a pulumi environment.
+Currently, there are four layers of automation within the project:
 
-Details about this feature: https://docs.gitlab.com/ee/user/clusters/agent
-
-## Pulumi
-
-While Terraform and Helm charts are the main tooling that most uses for GitOps, I wanted to explore a different
-direction where each of my deployable packages would contain their automation using the same langauge they are written.
-By allowing better focus for each product, I am hoping to provide greater flexibility with test coverage.
+1. Flux CD: synchronise the baseline setup to all clusters
+2. GitLab Cluster Agent: synchronise custom resources to individual clusters
+3. Pulumi: deployment modules and cluster configurations to be executed
+4. GitLab CI: automation tool for the whole code lifecycle
 
 # Images
 
-| Name                  | Docker | Issues |
-|:----------------------|:-------|:-------|
-| `adaliszk/duplicity`  | -      | -      |
-| `adaliszk/pocketbase` | -      | -      |
+| Name                    | Docker | GitHub | Quay | Issues |
+|:------------------------|:-------|:-------|:-----|:-------|
+| `adaliszk/duplicity`    | -      | -      | -    | -      |
+| `adaliszk/fission-bum`  | -      | -      | -    | -      |
+| `adaliszk/fission-deno` | -      | -      | -    | -      |
+| `adaliszk/fission-nest` | -      | -      | -    | -      |
+| `adaliszk/pocketbase`   | -      | -      | -    | -      |
 
 # Packages
 
-| Name                           | NPM | Issues |
-|:-------------------------------|:----|:-------|
-| `@adaliszk/k8s-gsm-essentials` | -   | -      |
-| `@adaliszk/k8s-web-essentials` | -   | -      |
-| `@adaliszk/k8s-minio`          | -   | -      |
-| `@adaliszk/k8s-kafka`          | -   | -      |
-| `@adaliszk/k8s-redis`          | -   | -      |
-| `@adaliszk/k8s-rabbitmq`       | -   | -      |
-| `@adaliszk/k8s-supabase`       | -   | -      |
-| `@adaliszk/k8s-postgres`       | -   | -      |
-| `@adaliszk/k8s-fission`        | -   | -      |
-| `@adaliszk/k8s-pocketbase`     | -   | -      |
-| `@adaliszk/k8s-surrealdb`      | -   | -      |
+| Name                       | NPM | Issues |
+|:---------------------------|:----|:-------|
+| `@adaliszk/k8s-fission`    | -   | -      |
+| `@adaliszk/k8s-gameserver` | -   | -      |
+| `@adaliszk/k8s-kafka`      | -   | -      |
+| `@adaliszk/k8s-minio`      | -   | -      |
+| `@adaliszk/k8s-pocketbase` | -   | -      |
+| `@adaliszk/k8s-postgres`   | -   | -      |
+| `@adaliszk/k8s-redis`      | -   | -      |
+| `@adaliszk/k8s-rabbitmq`   | -   | -      |
+| `@adaliszk/k8s-supabase`   | -   | -      |
+| `@adaliszk/k8s-surrealdb`  | -   | -      |
+| `@adaliszk/k8s-webapi`     | -   | -      |
+| `@adaliszk/k8s-webapp`     | -   | -      |
 
 # Contributions
 
