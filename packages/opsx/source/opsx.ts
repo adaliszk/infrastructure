@@ -66,7 +66,7 @@ if (exec.command === 'ansible-playbook')
 
 if (exec.command === 'docker') {
     const lastArg = exec.args.pop() ?? ''
-    if (exec.action === 'build') {
+    if (exec.action === 'build' || exec.action === 'buildx') {
         mapExtraArgs(/^DOCKER_/i, '--build-arg {attr}={value}')
         mapExtraArgs(/^PKG_/i, '--build-arg {variable}={value}')
     }
@@ -89,7 +89,7 @@ function mapExtraArgs(varMatch: RegExp, argument: string): void {
                 'variable': variable,
                 'attribute': variable.replace(varMatch, '').toLowerCase(),
                 'attr': variable.replace(varMatch, ''),
-                'value': `'${exec.env[variable]}'`,
+                'value': exec.env[variable] ?? '',
             }
 
             for (let arg of argument.split(' ')) {
