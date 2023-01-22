@@ -42,13 +42,13 @@ Currently, there are four layers of automation within the project:
 
 # Images
 
-| Name                    | Docker | GitHub | Quay | Issues |
-|:------------------------|:-------|:-------|:-----|:-------|
-| `adaliszk/duplicity`    | -      | -      | -    | -      |
-| `adaliszk/fission-bum`  | -      | -      | -    | -      |
-| `adaliszk/fission-deno` | -      | -      | -    | -      |
-| `adaliszk/fission-nest` | -      | -      | -    | -      |
-| `adaliszk/pocketbase`   | -      | -      | -    | -      |
+| Name                                                 | Docker                                                                                                                        | GitHub | Quay | Issues |
+|:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------|:-------|:-----|:-------|
+| `adaliszk/duplicity`                                 | -                                                                                                                             | -      | -    | -      |
+| `adaliszk/fission-bum`                               | -                                                                                                                             | -      | -    | -      |
+| `adaliszk/fission-deno`                              | -                                                                                                                             | -      | -    | -      |
+| `adaliszk/fission-nest`                              | -                                                                                                                             | -      | -    | -      |
+| [`adaliszk/pocketbase`](images/pocketbase/README.md) | [![Pulls](https://img.shields.io/docker/pulls/adaliszk/pocketbase?label=Pulls)](https://hub.docker.com/r/adaliszk/pocketbase) | -      | -    | -      |
 
 # Packages
 
@@ -66,6 +66,7 @@ Currently, there are four layers of automation within the project:
 | `@adaliszk/k8s-surrealdb`  | -   | -      |
 | `@adaliszk/k8s-webapi`     | -   | -      |
 | `@adaliszk/k8s-webapp`     | -   | -      |
+| `@adaliszk/opsx`           | -   | -      |
 
 # Contributions
 

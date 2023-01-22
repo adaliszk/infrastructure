@@ -1,9 +1,6 @@
 {
   "private": true,
   "name": "@cwd/images",
-  "scripts": {
-
-  },
   "workspaces": [
     "*"
   ]
