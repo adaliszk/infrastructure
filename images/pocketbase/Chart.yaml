@@ -1,0 +1,21 @@
+apiVersion: v2
+name: pocketbase
+description: >-
+  Unofficial PocketBase SaaS backend prepared for secure kubernetes deployment
+
+keywords:
+  - pocketbase
+  - backend
+  - database
+  - authentication
+  - authorization
+  - static-file
+  - s3
+  - sqlite
+  - sql
+
+maintainers:
+  - name: Ádám Liszkai
+    email: pocketbase@adaliszk.io
+
+version: 0.11.3

@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ include "pocketbase.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    {{- include "pocketbase.annotations" . | indent 4 }}
+    {{- toYaml .Values.service.annotations  | nindent 4 }}
+  labels:
+    {{- include "pocketbase.labels" . | indent 4 }}
+spec:
+  selector:
+    {{- include "pocketbase.selectorLabels" . | indent 4 }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http

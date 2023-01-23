@@ -1,0 +1,50 @@
+global:
+  ingressHostname: ""
+  imagePullPolicy: ""
+  imageRegistry: ""
+  imagePullSecrets: []
+  storageClass: ""
+
+## @param nameOverride String to partially override pocketbase.fullname template with a string (will prepend the release name)
+nameOverride: ""
+## @param fullnameOverride String to fully override pocketbase.fullname template with a string
+fullnameOverride: ""
+
+commonLabels: {}
+commonAnnotations: {}
+
+encryption:
+  generate: true
+  secretName: ""
+  secretKey: ""
+  key: ""
+
+livestream:
+  enabled: true
+  secretName: ""
+  url: ""
+
+image:
+  registry: docker.io
+  repository: adaliszk
+  name: pocketbase
+  tag: 0.11.3
+  pullPolicy: IfNotPresent
+
+persistence:
+  enabled: true
+  storageClass: ""
+  size: "4Gi"
+
+service:
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+ingress:
+  enabled: false
+  hostname: ""
+  controllerClass: ""
+  clusterIssuer: ""
+  annotations: {}
+  tls: true

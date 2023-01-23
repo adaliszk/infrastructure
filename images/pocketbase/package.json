@@ -8,9 +8,10 @@
   "author": "Ádám Liszkai <pocketbase@adaliszk.io>",
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "opsx docker buildx build --platform linux/arm/v7,linux/arm64,linux/amd64 --tag adaliszk/pocketbase:^PKG_VERSION^ --tag adaliszk/pocketbase:latest  .",
-    "test": "opsx docker build --tag adaliszk/pocketbase:develop . && opsx docker run -p 8080:8080 adaliszk/pocketbase:develop",
-    "push": "yarn build --push"
+    "build": "yarn build:image && yarn build:chart",
+    "build:image": "opsx docker buildx build --platform linux/arm/v7,linux/arm64,linux/amd64 --tag adaliszk/pocketbase:^PKG_VERSION^ --tag adaliszk/pocketbase:latest  .",
+    "build:chart": "opsx helm package . --dependency-update --version ^PKG_VERSION^",
+    "push": "yarn build:image --push"
   },
   "devDependencies": {
     "@adaliszk/opsx": "^0.1.0"

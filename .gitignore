@@ -4,10 +4,12 @@
 
 # Distribution
 **/dist
+packages/**/charts
+packages/**/*.tgz
 **/.env
 .env
 
-# NPM / Yarn
+# Package Managers
 **/node_modules
 node_modules
 **/.turbo

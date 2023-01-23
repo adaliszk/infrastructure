@@ -1,9 +1,21 @@
-
-
-
 FROM alpine:3.17 as pocketbase-binary
 ARG PKG_MIRROR="https://github.com/pocketbase/pocketbase/releases/download"
 ARG PKG_VERSION="0.11.3"
+ARG TARGETPLATFORM
+
+RUN apk --no-cache add 'wget>=1.21.3-r2' 'unzip>=6.0-r13' 'bash>=5.2.15-r0'
+SHELL ["/bin/bash", "-c"]
+
+RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
+ && wget -O /tmp/pocketbase.zip ${PKG_MIRROR}/v${PKG_VERSION}/pocketbase_${PKG_VERSION}_${ARCH}.zip \
+ && unzip /tmp/pocketbase.zip -d /opt \
+ && chmod +x /opt/pocketbase
+
+
+
+FROM alpine:3.17 as livestream-binary
+ARG LIVESTREAM_MIRROR="https://github.com/benbjohnson/litestream/releases/download"
+ARG LIVESTREAM_VERSION="0.3.9"
 ARG TARGETPLATFORM
 
 RUN apk --no-cache add 'wget>=1.21.3-r2' 'unzip>=6.0-r13' 'bash>=5.2.15-r0'
@@ -28,8 +40,7 @@ ENV DATA_DIR="/data/database" \
     POCKET_VERSION="${PKG_VERSION}"
 
 COPY docker-entrypoint.sh /pocketbase
-RUN addgroup --gid 1001 oci \
- && adduser --uid 1001 --shell /bin/bash -G oci -S oci \
+RUN addgroup --gid 1001 oci && adduser --uid 1001 --shell /bin/bash -G oci -S oci \
  && mkdir -p /data && chown 1001 -R /data \
  && ln -s /pocketbase /usr/local/bin/pocketbase \
  && chmod +x /pocketbase

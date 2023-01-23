@@ -1,0 +1,43 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: {{ include "pocketbase.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    {{- include "pocketbase.annotations" . | indent 4 }}
+  labels:
+    {{- include "pocketbase.labels" . | indent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "pocketbase.selectorLabels" . | indent 6 }}
+  serviceName: "pocketbase"
+  template:
+    metadata:
+      labels:
+        {{- include "pocketbase.selectorLabels" . | indent 8 }}
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: pocketbase
+          image: {{ include "pocketbase.image" . }}
+          imagePullPolicy: {{ include "pocketbase.imagePullPolicy" . }}
+          ports:
+            - containerPort: 8080
+              name: http
+          volumeMounts:
+            - name: data
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ include "pocketbase.fullname" . }}
+        annotations:
+          {{- include "pocketbase.annotations" . | indent 4 }}
+        labels:
+          {{- include "pocketbase.labels" . | indent 4 }}
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: {{- include "pocketbase.storageClass" . }}
+        resources:
+          requests:
+            storage: {{- include "pocketbase.storageSize" . }}
