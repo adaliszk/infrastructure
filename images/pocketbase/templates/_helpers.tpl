@@ -12,8 +12,8 @@ service: "backend"
 {{- end }}
 
 {{- define "pocketbase.labels" }}
-type: "backend"
 stack: "pocketbase"
+type: "backend"
 {{- end }}
 
 {{- define "pocketbase.annotations" }}
@@ -35,4 +35,16 @@ adaliszk.io/type: "backend"
 
 {{- define "pocketbase.imagePullPolicy" -}}
 {{ default .Values.global.imagePullPolicy .Values.image.pullPolicy }}
+{{- end }}
+
+{{- define "pocketbase.encryption.secret" -}}
+{{ default (include "pocketbase.fullname" .) .Values.encryption.secretName }}
+{{- end }}
+
+{{- define "pocketbase.encryption.secretKey" -}}
+{{ default "encryption-key" .Values.encryption.secretKey }}
+{{- end }}
+
+{{- define "pocketbase.encryption.key" -}}
+{{ default (randAlphaNum 32) .Values.encryption.key }}
 {{- end }}

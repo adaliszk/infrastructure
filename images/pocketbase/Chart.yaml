@@ -18,4 +18,5 @@ maintainers:
   - name: Ádám Liszkai
     email: pocketbase@adaliszk.io
 
-version: 0.11.3
+appVersion: 0.11.3
+version: 0.1.0

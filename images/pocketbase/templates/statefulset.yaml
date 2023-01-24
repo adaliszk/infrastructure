@@ -17,17 +17,23 @@ spec:
       labels:
         {{- include "pocketbase.selectorLabels" . | indent 8 }}
     spec:
-      terminationGracePeriodSeconds: 10
+      terminationGracePeriodSeconds: 15
       containers:
         - name: pocketbase
           image: {{ include "pocketbase.image" . }}
           imagePullPolicy: {{ include "pocketbase.imagePullPolicy" . }}
+          env:
+            - name: POCKET_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "pocketbase.encryption.secret" . }}
+                  key: {{ include "pocketbase.encryption.secretKey" . }}
           ports:
             - containerPort: 8080
               name: http
           volumeMounts:
-            - name: data
-              mountPath: /data
+            - mountPath: /data
+              name: data
   volumeClaimTemplates:
     - metadata:
         name: {{ include "pocketbase.fullname" . }}
