@@ -40,33 +40,34 @@ Currently, there are four layers of automation within the project:
 3. Pulumi: deployment modules and cluster configurations to be executed
 4. GitLab CI: automation tool for the whole code lifecycle
 
-# Images
+# Images and Charts
 
-| Name                                                 | Docker                                                                                                                        | GitHub | Quay | Issues |
-|:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------|:-------|:-----|:-------|
-| `adaliszk/duplicity`                                 | -                                                                                                                             | -      | -    | -      |
-| `adaliszk/fission-bum`                               | -                                                                                                                             | -      | -    | -      |
-| `adaliszk/fission-deno`                              | -                                                                                                                             | -      | -    | -      |
-| `adaliszk/fission-nest`                              | -                                                                                                                             | -      | -    | -      |
-| [`adaliszk/pocketbase`](images/pocketbase/README.md) | [![Pulls](https://img.shields.io/docker/pulls/adaliszk/pocketbase?label=Pulls)](https://hub.docker.com/r/adaliszk/pocketbase) | -      | -    | -      |
+| Name                                       | Docker                                                                                                                        | GitHub | Quay | Issues |
+|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------|:-------|:-----|:-------|
+| `adaliszk/duplicity`                       | -                                                                                                                             | -      | -    | -      |
+| `adaliszk/fission-bum`                     | -                                                                                                                             | -      | -    | -      |
+| `adaliszk/fission-deno`                    | -                                                                                                                             | -      | -    | -      |
+| `adaliszk/fission-nest`                    | -                                                                                                                             | -      | -    | -      |
+| [`adaliszk/pocketbase`](images/pocketbase) | [![Pulls](https://img.shields.io/docker/pulls/adaliszk/pocketbase?label=Pulls)](https://hub.docker.com/r/adaliszk/pocketbase) | -      | -    | -      |
 
 # Packages
 
-| Name                       | NPM | Issues |
-|:---------------------------|:----|:-------|
-| `@adaliszk/k8s-fission`    | -   | -      |
-| `@adaliszk/k8s-gameserver` | -   | -      |
-| `@adaliszk/k8s-kafka`      | -   | -      |
-| `@adaliszk/k8s-minio`      | -   | -      |
-| `@adaliszk/k8s-pocketbase` | -   | -      |
-| `@adaliszk/k8s-postgres`   | -   | -      |
-| `@adaliszk/k8s-redis`      | -   | -      |
-| `@adaliszk/k8s-rabbitmq`   | -   | -      |
-| `@adaliszk/k8s-supabase`   | -   | -      |
-| `@adaliszk/k8s-surrealdb`  | -   | -      |
-| `@adaliszk/k8s-webapi`     | -   | -      |
-| `@adaliszk/k8s-webapp`     | -   | -      |
-| `@adaliszk/opsx`           | -   | -      |
+| Name                                                    | NPM                                                                                                                                                             | Issues                                                                                                                                                                                                                                       |
+|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `@adaliszk/k8s-fission`                                 | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-gameserver`                              | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-kafka`                                   | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-minio`                                   | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-pocketbase`                              | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| [`@adaliszk/k8s-postgres-ha`](packages/k8s-postgres-ha) | [![NPM](https://img.shields.io/npm/v/@adaliszk/k8s-postgres-ha.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/k8s-postgres-ha) | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Ak8s-postgres-ha)](https://github.com/adaliszk/infrastructure/labels/k8s-postgres-ha) |
+| `@adaliszk/k8s-redis`                                   | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-rabbitmq`                                | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-supabase`                                | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-surrealdb`                               | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-webapi`                                  | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| `@adaliszk/k8s-webapp`                                  | -                                                                                                                                                               | -                                                                                                                                                                                                                                            |
+| [`@adaliszk/pulumi`](packages/pulumi)                   | [![NPM](https://img.shields.io/npm/v/@adaliszk/pulumi.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/pulumi)                   | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Apulumi)](https://github.com/adaliszk/infrastructure/labels/pulumi)                   |
+| [`@adaliszk/opsx`](packages/opsx)                       | [![NPM](https://img.shields.io/npm/v/@adaliszk/opsx.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/opsx)                       | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Aopsx)](https://github.com/adaliszk/infrastructure/labels/opsx)                       |
 
 # Contributions
 
