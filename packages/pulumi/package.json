@@ -29,5 +29,13 @@
     "eslint": "latest",
     "tsup": "latest",
     "typescript": "latest"
-  }
+  },
+  "keywords": [
+    "continious deployment",
+    "automated deployment",
+    "infrastructure as code",
+    "automation",
+    "pulumi",
+    "cd"
+  ]
 }

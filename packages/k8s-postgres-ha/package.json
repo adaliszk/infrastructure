@@ -29,5 +29,13 @@
     "eslint": "latest",
     "tsup": "latest",
     "typescript": "latest"
-  }
+  },
+  "keywords": [
+    "infrastructure as code",
+    "highly-available",
+    "postgresql",
+    "postgres",
+    "bitnami",
+    "pulumi"
+  ]
 }
