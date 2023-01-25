@@ -1,0 +1,7 @@
+- name: "Install required packages"
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - open-iscsi
+    - nfs-client

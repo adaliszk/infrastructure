@@ -4,3 +4,4 @@
     - private-domain
     - private-network
     - static-dns
+    - longhorn
