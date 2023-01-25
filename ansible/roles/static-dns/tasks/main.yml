@@ -6,5 +6,5 @@
 
 - name: "Set DNS resolution"
   ansible.builtin.template:
-    src: debian/resolv.conf.j2
+    src: "{{ ansible_os_family }}/resolv.conf.j2"
     dest: /etc/resolv.conf
