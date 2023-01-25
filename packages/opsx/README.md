@@ -18,9 +18,10 @@ opsx docker build -t your/image:^PKG_VERSION^ .
 Build arguments are passed from `BUILD_<attr>=<value>` and `PKG_<attr>` environment variables, for example:
 
 ```bash
-export PKG_VERSION="123" # done automatically
+export PKG_VERSION="1.2.3" # done automatically
+export BUILD_SOMETHING="example"
 opsx docker build -t your/image:tag .
-> docker build -t your/image:tag --build-arg PKG_VERSION="1.2.3 ."
+> docker build -t your/image:tag --build-arg PKG_VERSION=1.2.3 --build-arg SOMETHING=example .
 ```
 
 ### Terraform
