@@ -1,0 +1,33 @@
+{
+  "version": "3.52.0",
+  "name": "@adaliszk/pulumi",
+  "description": "Pulumi configuration orchestration",
+  "repository": "github:adaliszk/infrastructure",
+  "author": "Ádám Liszkai <pulumi@adaliszk.io>",
+  "license": "BSD-3-Clause",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.mjs",
+  "types": "dist/bundle.d.ts",
+  "files": [
+    "dist/*",
+    "*md"
+  ],
+  "scripts": {
+    "build": "tsup source/bundle.ts --format cjs,esm --sourcemap --dts"
+  },
+  "dependencies": {
+    "@pulumi/kubernetes": "^3.23.1",
+    "@pulumi/pulumi": "^3.52.1",
+    "@pulumi/random": "^4.8.2"
+  },
+  "peerDependencies": {
+    "@pulumi/pulumi": "^3.52"
+  },
+  "devDependencies": {
+    "@adaliszk/typescript": "latest",
+    "@swc/core": "latest",
+    "eslint": "latest",
+    "tsup": "latest",
+    "typescript": "latest"
+  }
+}
