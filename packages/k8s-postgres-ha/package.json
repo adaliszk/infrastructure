@@ -1,5 +1,5 @@
 {
-  "version": "15.1.1",
+  "version": "15.1.2",
   "name": "@adaliszk/k8s-postgres-ha",
   "description": "Highly-Available PostgreSQL using Bitnami's helm chart",
   "repository": "github:adaliszk/infrastructure",
@@ -20,7 +20,7 @@
     "pulumi": "pulumi"
   },
   "dependencies": {
-    "@adaliszk/pulumi": "^3.52.1",
+    "@adaliszk/pulumi": "^3.52.2",
     "@pulumi/pulumi": "^3.52.1"
   },
   "devDependencies": {
