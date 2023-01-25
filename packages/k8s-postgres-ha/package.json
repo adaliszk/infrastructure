@@ -1,0 +1,33 @@
+{
+  "version": "15.1.0",
+  "name": "@adaliszk/k8s-postgres-ha",
+  "description": "Highly-Available PostgreSQL using Bitnami's helm chart",
+  "repository": "github:adaliszk/infrastructure",
+  "author": "Ádám Liszkai <postgres-ha@adaliszk.io>",
+  "license": "BSD-3-Clause",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.mjs",
+  "types": "dist/bundle.d.ts",
+  "files": [
+    "dist/*",
+    "*md"
+  ],
+  "scripts": {
+    "build": "tsup source/bundle.ts --format cjs,esm --sourcemap --dts",
+    "new": "pulumi new",
+    "deploy": "pulumi up",
+    "destroy": "pulumi destroy",
+    "pulumi": "pulumi"
+  },
+  "dependencies": {
+    "@adaliszk/pulumi": "^3.52.0",
+    "@pulumi/pulumi": "^3.52.1"
+  },
+  "devDependencies": {
+    "@adaliszk/typescript": "latest",
+    "@swc/core": "latest",
+    "eslint": "latest",
+    "tsup": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,6 @@
+name: postgres-ha
+description: >-
+  Highly-Available PostgreSQL using Bitnami's helm chart
+
+main: pulumi.config.ts
+runtime: nodejs

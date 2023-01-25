@@ -1,9 +1,10 @@
 {
   "private": true,
-  "name": "@cwd/kubernetes",
-  "description": "Kubernetes setup for Web Deployments",
+  "name": "@cwd/packages",
+  "description": "Deployment packages for Kubernetes or Cloud environments",
   "scripts": {
-    "web-essentials": "yarn workspace @adaliszk/k8s-web-essentials"
+    "pulumi": "yarn workspace @adaliszk/pulumi",
+    "postgres-ha": "yarn workspace @adaliszk/k8s-postgres-ha"
   },
   "workspaces": [
     "*"
