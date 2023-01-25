@@ -6,6 +6,7 @@
 **/dist
 packages/**/charts
 packages/**/*.tgz
+images/**/*.tgz
 **/.env
 .env
 
