@@ -1,5 +1,6 @@
 import { k8s, random, StackConfig, Component, ComponentDeployment } from '@adaliszk/pulumi'
 import { PostgresOptions } from './types'
+import {Service} from "@pulumi/kubernetes/core/v1";
 
 
 export const postgres: Component = (options?: PostgresOptions) =>
@@ -61,6 +62,16 @@ export const postgres: Component = (options?: PostgresOptions) =>
         }, {
             dependsOn: [config.namespace, secret]
         })
+
+        // const service = new k8s.core.v1.Service('postgres-service', {
+        //     metadata: {
+        //         name: `psql-database`,
+        //     },
+        //     spec: {
+        //         type: 'ExternalName',
+        //         externalName: ''
+        //     }
+        // })
     }
 
     return component
