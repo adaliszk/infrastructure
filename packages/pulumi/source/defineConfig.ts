@@ -1,10 +1,14 @@
-import * as k8s from '@pulumi/kubernetes'
+import type {Deployment, DeploymentConfig} from './types'
 import * as pulumi from '@pulumi/pulumi'
-import { DeploymentConfig } from './types'
+import * as k8s from '@pulumi/kubernetes'
 
-export function defineConfig (config: DeploymentConfig)
+
+export function defineConfig(config: Deployment)
 {
     const stack = pulumi.getStack()
+    if (typeof config === 'function')
+        config = config(stack) ?? {} as DeploymentConfig
+
     if (config?.createNamespace)
     {
         let namespaceDetails = {}
