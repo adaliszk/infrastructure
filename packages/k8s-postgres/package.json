@@ -1,5 +1,5 @@
 {
-  "version": "15.1.0",
+  "version": "15.1.1",
   "name": "@adaliszk/k8s-postgres",
   "description": "Simple PostgreSQL using Bitnami's helm chart",
   "repository": "github:adaliszk/infrastructure",
@@ -16,7 +16,7 @@
     "build": "tsup source/bundle.ts --format cjs,esm --sourcemap --dts"
   },
   "dependencies": {
-    "@adaliszk/pulumi": "^3.52.2",
+    "@adaliszk/pulumi": "^3.52.3",
     "@pulumi/pulumi": "^3.52.1"
   },
   "devDependencies": {

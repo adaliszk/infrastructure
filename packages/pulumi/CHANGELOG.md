@@ -1,5 +1,11 @@
 # @adaliszk/pulumi
 
+## 3.52.3
+
+### Patch Changes
+
+- 967f113: Adding basic PostgreSQL and updates to Pulumi wrapper
+
 ## 3.52.2
 
 ### Patch Changes

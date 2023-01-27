@@ -1,5 +1,13 @@
 # @adaliszk/k8s-postgres-ha
 
+## 15.1.1
+
+### Patch Changes
+
+- 967f113: Adding basic PostgreSQL and updates to Pulumi wrapper
+- Updated dependencies [967f113]
+  - @adaliszk/pulumi@3.52.3
+
 ## 15.1.2
 
 ### Patch Changes

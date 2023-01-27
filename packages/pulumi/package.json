@@ -1,5 +1,5 @@
 {
-  "version": "3.52.2",
+  "version": "3.52.3",
   "name": "@adaliszk/pulumi",
   "description": "Pulumi configuration orchestration",
   "repository": "github:adaliszk/infrastructure",
