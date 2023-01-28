@@ -24,6 +24,8 @@ export function defineConfig(config: Deployment)
         config.namespace = new k8s.core.v1.Namespace(stack, namespaceDetails)
     }
 
+    config.stack = stack
+
     // TODO: Export outputs
     for (const resource of config.resources)
         resource(config)

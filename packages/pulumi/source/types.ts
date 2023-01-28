@@ -2,6 +2,7 @@ import {core} from '@pulumi/kubernetes'
 
 export interface StackConfig
 {
+    stack: string
     namespace?: core.v1.Namespace
     commonAnnotations?: object
     commonLabels?: object

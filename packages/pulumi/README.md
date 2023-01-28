@@ -69,5 +69,4 @@ Ideally you should build this package, so that pulumi would need less compilatio
 ## Versioning
 
 Since this is a meta-package, the versioning reflect its main provided package, in this case `@pulumi/pulumi`. However,
-only the
-Major and Minor versions are kept in sync, and the Patch is used to bump the meta-package.
+only the Major and Minor versions are kept in sync, and the Patch is used to bump the meta-package.
