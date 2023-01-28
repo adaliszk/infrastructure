@@ -1,5 +1,11 @@
 # @adaliszk/pulumi
 
+## 3.52.4
+
+### Patch Changes
+
+- 58bbea1: Fine tuning features
+
 ## 3.52.3
 
 ### Patch Changes
