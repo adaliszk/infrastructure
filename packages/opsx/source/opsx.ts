@@ -15,7 +15,8 @@ const dir = {
     root: process.cwd()
 }
 
-for (let limit = 0; limit < 6; limit++) {
+for (let limit = 0; limit < 6; limit++)
+{
     const checkPath = path.resolve(dir.root, '..')
     const gitPath = path.resolve(checkPath, '.git')
     const gitFound = fs.existsSync(gitPath)
@@ -29,7 +30,8 @@ for (let limit = 0; limit < 6; limit++) {
 
 let collectedEnv = {...process.env}
 
-for (const dotenvDir of [dir.root, dir.current]) {
+for (const dotenvDir of [dir.root, dir.current])
+{
     const dotenvFile = path.resolve(dotenvDir, '.env')
     const dotenvResult = dotenv.config({path: dotenvFile})
     collectedEnv = {...collectedEnv, ...dotenvResult.parsed}
@@ -43,7 +45,7 @@ collectedEnv['TIMESTAMP'] = new Date().toString()
 const pkgFile = path.resolve(dir.current, 'package.json')
 const pkg = JSON.parse(fs.readFileSync(pkgFile).toString())
 
-for (const key of ['name', 'version', 'description', 'homepage', 'bugs', 'license', 'repository'])
+for (const key of ['name', 'version', 'appVersion', 'description', 'homepage', 'bugs', 'license', 'repository'])
     if (pkg[key])
         collectedEnv[`PKG_${key.toUpperCase()}`] = pkg[key]
 
@@ -64,16 +66,19 @@ if (exec.command === 'terraform' && exec.action === 'init')
 if (exec.command === 'ansible-playbook')
     mapExtraArgs(/^ANSIBLE_HOSTS/i, '-i {value},')
 
-if (exec.command === 'docker') {
+if (exec.command === 'docker')
+{
     const lastArg = exec.args.pop() ?? ''
-    if (exec.action === 'build' || exec.action === 'buildx') {
+    if (exec.action === 'build' || exec.action === 'buildx')
+    {
         mapExtraArgs(/^DOCKER_/i, '--build-arg {attr}={value}')
         mapExtraArgs(/^PKG_/i, '--build-arg {variable}={value}')
     }
     exec.args.push(lastArg)
 }
 
-interface ExtraArgMap {
+interface ExtraArgMap
+{
     [index: string]: string
 }
 
@@ -81,31 +86,34 @@ interface ExtraArgMap {
  * @param {RegExp} varMatch filter for environment variable that is used to also map, example: /^MY_VAR_/i
  * @param {string} argument template for the argument; available variables: {attribute} {attr} {value}
  */
-function mapExtraArgs(varMatch: RegExp, argument: string): void {
+function mapExtraArgs(varMatch: RegExp, argument: string): void
+{
     Object.keys(exec.env)
-        .filter($var => $var.match(varMatch))
-        .forEach(variable => {
-            const map: ExtraArgMap = {
-                'variable': variable,
-                'attribute': variable.replace(varMatch, '').toLowerCase(),
-                'attr': variable.replace(varMatch, ''),
-                'value': exec.env[variable] ?? '',
-            }
+          .filter($var => $var.match(varMatch))
+          .forEach(variable => {
+              const map: ExtraArgMap = {
+                  'variable': variable,
+                  'attribute': variable.replace(varMatch, '').toLowerCase(),
+                  'attr': variable.replace(varMatch, ''),
+                  'value': exec.env[variable] ?? '',
+              }
 
-            for (let arg of argument.split(' ')) {
-                for (const property of Object.keys(map))
-                    arg = arg.replace(`{${property}}`, map[property])
+              for (let arg of argument.split(' '))
+              {
+                  for (const property of Object.keys(map))
+                      arg = arg.replace(`{${property}}`, map[property])
 
-                exec.args.push(arg)
-            }
-        })
+                  exec.args.push(arg)
+              }
+          })
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Parse variables in the command or arguments
 // TODO: Create or Find a Yarn plugin that parses the package json into environment variables to be used
 
-for (let [index, argument] of Object.entries(exec.args)) {
+for (let [index, argument] of Object.entries(exec.args))
+{
     for (const key of Object.keys(exec.env))
         argument = argument.replace(`^${key}^`, exec.env[key] ?? '')
     exec.args[Number(index)] = argument
