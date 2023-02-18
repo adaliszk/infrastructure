@@ -38,7 +38,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adaliszk/k8s-postgres-ha@workspace:packages/k8s-postgres-ha"
   dependencies:
-    "@adaliszk/pulumi": ^3.52.0
+    "@adaliszk/pulumi": ^3.52.2
+    "@adaliszk/typescript": latest
+    "@pulumi/pulumi": ^3.52.1
+    "@swc/core": latest
+    eslint: latest
+    tsup: latest
+    typescript: latest
+  languageName: unknown
+  linkType: soft
+
+"@adaliszk/k8s-postgres@workspace:packages/k8s-postgres":
+  version: 0.0.0-use.local
+  resolution: "@adaliszk/k8s-postgres@workspace:packages/k8s-postgres"
+  dependencies:
+    "@adaliszk/pulumi": ^3.52.3
     "@adaliszk/typescript": latest
     "@pulumi/pulumi": ^3.52.1
     "@swc/core": latest
@@ -63,7 +77,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adaliszk/pulumi@^3.52.0, @adaliszk/pulumi@workspace:packages/pulumi":
+"@adaliszk/pulumi@^3.52.2, @adaliszk/pulumi@^3.52.3, @adaliszk/pulumi@workspace:packages/pulumi":
   version: 0.0.0-use.local
   resolution: "@adaliszk/pulumi@workspace:packages/pulumi"
   dependencies:
@@ -397,14 +411,6 @@ __metadata:
 "@cwd/packages@workspace:packages":
   version: 0.0.0-use.local
   resolution: "@cwd/packages@workspace:packages"
-  languageName: unknown
-  linkType: soft
-
-"@cwd/pocketbase@workspace:images/pocketbase":
-  version: 0.0.0-use.local
-  resolution: "@cwd/pocketbase@workspace:images/pocketbase"
-  dependencies:
-    "@adaliszk/opsx": ^0.1.0
   languageName: unknown
   linkType: soft
 
@@ -4346,6 +4352,14 @@ __metadata:
   checksum: 9863e3f35132bf99ae1636d31ff1e1e3501251d480336edb1c211133c8d58906bed80f154a1d723652df1fda91e01c7442c2eeaf9dc83157c7ae89087e43c8d6
   languageName: node
   linkType: hard
+
+"pocketbase@workspace:images/pocketbase":
+  version: 0.0.0-use.local
+  resolution: "pocketbase@workspace:images/pocketbase"
+  dependencies:
+    "@adaliszk/opsx": ^0.1.0
+  languageName: unknown
+  linkType: soft
 
 "postcss-load-config@npm:^3.0.1":
   version: 3.1.4
