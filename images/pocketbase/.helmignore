@@ -1,5 +1,8 @@
-node_modules
 docker-entrypoint.sh
 Dockerfile
+.turbo
+source
+dist
+*.gif
 *.json
 *.md
