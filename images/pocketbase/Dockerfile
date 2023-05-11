@@ -1,4 +1,4 @@
-FROM alpine:3.17 as pocketbase-binary
+FROM alpine:3 as pocketbase-binary
 ARG PKG_MIRROR="https://github.com/pocketbase/pocketbase/releases/download"
 ARG PKG_VERSION="0.11.3"
 ARG TARGETPLATFORM
@@ -13,7 +13,7 @@ RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
 
 
 
-FROM alpine:3.17 as livestream-binary
+FROM alpine:3 as livestream-binary
 ARG LIVESTREAM_MIRROR="https://github.com/benbjohnson/litestream/releases/download"
 ARG LIVESTREAM_VERSION="0.3.9"
 ARG TARGETPLATFORM
@@ -28,7 +28,7 @@ RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
 
 
 
-FROM alpine:3.17 as pocketbase
+FROM alpine:3 as pocketbase
 RUN apk --no-cache add 'bash>=5.2.15-r0'
 
 COPY --from=pocketbase-binary --chown=1001 /opt/pocketbase /opt/pocketbase
