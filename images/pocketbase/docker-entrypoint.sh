@@ -8,8 +8,6 @@ cat <<-WELCOME_MESSAGE
 
 	PocketBase is under the MIT License: Copyright © 2022 - present, Gani Georgiev
 	Container is under BSD 3-Clause: Copyright © 2023 by Ádám Liszkai
-
-	Documentation: https://docs.adaliszk.io/pocketbase
 	Source: https://github.com/adaliszk/infrastructure
 
 	> PocketBase version: ${POCKET_VERSION}

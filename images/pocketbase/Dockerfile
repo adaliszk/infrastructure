@@ -1,10 +1,12 @@
-FROM alpine:3.17 as pocketbase-binary
+FROM alpine:3.18 as downloader
+RUN apk --no-cache add 'wget>=1.21.4-r0' 'unzip>=6.0-r14' 'bash>=5.2.15-r5'
+SHELL ["/bin/bash", "-c"]
+
+
+FROM downloader as pocketbase-binary
 ARG PKG_MIRROR="https://github.com/pocketbase/pocketbase/releases/download"
-ARG PKG_VERSION="0.11.3"
+ARG PKG_VERSION="0.17.5"
 ARG TARGETPLATFORM
-
-RUN apk --no-cache add 'wget>=1.21.3-r2' 'unzip>=6.0-r13' 'bash>=5.2.15-r0'
-SHELL ["/bin/bash", "-c"]
 
 RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
  && wget -O /tmp/pocketbase.zip ${PKG_MIRROR}/v${PKG_VERSION}/pocketbase_${PKG_VERSION}_${ARCH}.zip \
@@ -12,14 +14,11 @@ RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
  && chmod +x /opt/pocketbase
 
 
-
-FROM alpine:3.17 as livestream-binary
+FROM downloader as livestream-binary
 ARG LIVESTREAM_MIRROR="https://github.com/benbjohnson/litestream/releases/download"
-ARG LIVESTREAM_VERSION="0.3.9"
+ARG LIVESTREAM_VERSION="0.3.11"
 ARG TARGETPLATFORM
 
-RUN apk --no-cache add 'wget>=1.21.3-r2' 'unzip>=6.0-r13' 'bash>=5.2.15-r0'
-SHELL ["/bin/bash", "-c"]
 
 RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
  && wget -O /tmp/pocketbase.zip ${PKG_MIRROR}/v${PKG_VERSION}/pocketbase_${PKG_VERSION}_${ARCH}.zip \
@@ -28,12 +27,12 @@ RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
 
 
 
-FROM alpine:3.17 as pocketbase
-RUN apk --no-cache add 'bash>=5.2.15-r0'
+FROM alpine:3.18 as pocketbase
+RUN apk --no-cache add 'bash>=5.2.15-r5'
 
 COPY --from=pocketbase-binary --chown=1001 /opt/pocketbase /opt/pocketbase
 
-ARG PKG_VERSION="0.11.3"
+ARG PKG_VERSION="0.17.5"
 ENV DATA_DIR="/data/database" \
     MIGRATION_DIR="/data/migration" \
     PUBLIC_DIR="/data/static" \

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.12.3",
+  "version": "0.17.5",
   "name": "pocketbase",
   "description": "Unofficial PocketBase SaaS backend prepared for secure kubernetes deployment",
   "homepage": "https://github.com/adaliszk/infrastructure",
