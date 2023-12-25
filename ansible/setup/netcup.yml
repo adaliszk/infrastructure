@@ -1,0 +1,6 @@
+- name: "Netcup"
+  hosts: "netcup"
+  roles:
+    - private-domain
+    - static-dns
+    - longhorn

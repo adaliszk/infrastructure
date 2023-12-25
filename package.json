@@ -8,8 +8,6 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "ansible": "yarn workspace @cwd/ansible",
-    "cluster": "yarn workspace @cwd/clusters",
-    "package": "yarn workspace @cwd/packages",
     "changeset": "changeset",
     "build": "turbo build",
     "push": "turbo push"
@@ -20,14 +18,5 @@
     "eslint": "latest",
     "turbo": "latest",
     "typescript": "latest"
-  },
-  "workspaces": [
-    "ansible",
-    "clusters/*",
-    "clusters",
-    "images/*",
-    "images",
-    "packages/*",
-    "packages"
-  ]
+  }
 }

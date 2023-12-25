@@ -1,5 +1,0 @@
-gitops:
-  manifest_projects:
-    - id: adaliszk/infrastructure
-      paths:
-        - glob: '/environments/public-k8s1/resources/**/*.{yaml,yml}'
