@@ -35,7 +35,6 @@ with deep and accurate testing support.
 Currently, there are four layers of automation within the project:
 
 1. Flux CD: synchronise the baseline setup to all clusters
-2. GitLab Cluster Agent: synchronise custom resources to individual clusters
 3. Pulumi: deployment modules and cluster configurations to be executed
 4. GitLab CI: automation tool for the whole code lifecycle
 
