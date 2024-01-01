@@ -1,9 +1,9 @@
 'use strict'
 
 import * as child_process from 'node:child_process'
-import * as process from 'node:process'
-import * as path from 'node:path'
 import * as fs from 'node:fs'
+import * as path from 'node:path'
+import * as process from 'node:process'
 
 import * as dotenv from 'dotenv'
 
@@ -12,7 +12,7 @@ import * as dotenv from 'dotenv'
 
 const dir = {
     current: process.cwd(),
-    root: process.cwd()
+    root: process.cwd(),
 }
 
 for (let limit = 0; limit < 6; limit++)
@@ -28,16 +28,16 @@ for (let limit = 0; limit < 6; limit++)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Load .env files
 
-let collectedEnv = {...process.env}
+let collectedEnv = { ...process.env }
 
 for (const dotenvDir of [dir.root, dir.current])
 {
     const dotenvFile = path.resolve(dotenvDir, '.env')
-    const dotenvResult = dotenv.config({path: dotenvFile})
-    collectedEnv = {...collectedEnv, ...dotenvResult.parsed}
+    const dotenvResult = dotenv.config({ path: dotenvFile })
+    collectedEnv = { ...collectedEnv, ...dotenvResult.parsed }
 }
 
-collectedEnv['TIMESTAMP'] = new Date().toString()
+collectedEnv.TIMESTAMP = new Date().toString()
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Parse package.json
@@ -46,8 +46,11 @@ const pkgFile = path.resolve(dir.current, 'package.json')
 const pkg = JSON.parse(fs.readFileSync(pkgFile).toString())
 
 for (const key of ['name', 'version', 'appVersion', 'description', 'homepage', 'bugs', 'license', 'repository'])
+
     if (pkg[key])
+
         collectedEnv[`PKG_${key.toUpperCase()}`] = pkg[key]
+
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Parse arguments for Operation tools
@@ -61,10 +64,14 @@ const exec = {
 }
 
 if (exec.command === 'terraform' && exec.action === 'init')
+
     mapExtraArgs(/^TF_BACKEND_/i, '-backend-config={attribute}={value}')
 
+
 if (exec.command === 'ansible-playbook')
+
     mapExtraArgs(/^ANSIBLE_HOSTS/i, '-i {value},')
+
 
 if (exec.command === 'docker')
 {
@@ -86,26 +93,29 @@ interface ExtraArgMap
  * @param {RegExp} varMatch filter for environment variable that is used to also map, example: /^MY_VAR_/i
  * @param {string} argument template for the argument; available variables: {attribute} {attr} {value}
  */
-function mapExtraArgs(varMatch: RegExp, argument: string): void
+function mapExtraArgs (varMatch: RegExp, argument: string): void
 {
     Object.keys(exec.env)
-          .filter($var => $var.match(varMatch))
-          .forEach(variable => {
-              const map: ExtraArgMap = {
-                  'variable': variable,
-                  'attribute': variable.replace(varMatch, '').toLowerCase(),
-                  'attr': variable.replace(varMatch, ''),
-                  'value': exec.env[variable] ?? '',
-              }
+        .filter($var => $var.match(varMatch))
+        .forEach(variable =>
+        {
+            const map: ExtraArgMap = {
+                variable,
+                attribute: variable.replace(varMatch, '').toLowerCase(),
+                attr: variable.replace(varMatch, ''),
+                value: exec.env[variable] ?? '',
+            }
 
-              for (let arg of argument.split(' '))
-              {
-                  for (const property of Object.keys(map))
-                      arg = arg.replace(`{${property}}`, map[property])
+            for (let arg of argument.split(' '))
+            {
+                for (const property of Object.keys(map))
 
-                  exec.args.push(arg)
-              }
-          })
+                    arg = arg.replace(`{${property}}`, map[property])
+
+
+                exec.args.push(arg)
+            }
+        })
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -115,7 +125,9 @@ function mapExtraArgs(varMatch: RegExp, argument: string): void
 for (let [index, argument] of Object.entries(exec.args))
 {
     for (const key of Object.keys(exec.env))
+
         argument = argument.replace(`^${key}^`, exec.env[key] ?? '')
+
     exec.args[Number(index)] = argument
 }
 
@@ -127,6 +139,6 @@ console.log(`> ${exec.command} ${exec.args.join(' ')}`)
 child_process
     .spawn(exec.command, exec.args, {
         stdio: 'inherit',
-        env: exec.env
+        env: exec.env,
     })
     .on('close', (code) => process.exit(code ?? 1))

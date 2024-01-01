@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# Copyright © 2023 by Ádám Liszkai using BSD 3-Clause License
+# Copyright © 2023-2024 by Ádám Liszkai using BSD 3-Clause License
 # https://source.adaliszk.io/pocketbase/license
 
 cat <<-WELCOME_MESSAGE
 
 	THANK YOU FOR USING ADALISZK/POCKETBASE!
 
-	PocketBase is under the MIT License: Copyright © 2022 - present, Gani Georgiev
-	Container is under BSD 3-Clause: Copyright © 2023 by Ádám Liszkai
+	PocketBase is under the MIT License: Copyright © 2022-present, Gani Georgiev
+	Container is under BSD 3-Clause: Copyright © 2023-2024 by Ádám Liszkai
 	Source: https://github.com/adaliszk/infrastructure
 
 	> PocketBase version: ${POCKET_VERSION}

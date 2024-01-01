@@ -17,7 +17,7 @@ with deep and accurate testing support.
 
 ## Prerequisites
 
-- [**yarn**](https://yarnpkg.com)  for managing the workspaces within the project
+- [**yarn**](https://yarnpkg.com) for managing the workspaces within the project
 - [**ansible**](https://docs.ansible.com/ansible) for server configurations
 - [**flux**](https://fluxcd.io/flux/installation) as gitops automation for all environments
 - [**gitlab**](https://about.gitlab.com/features/continuous-integration) as gitops automation for packages
@@ -43,20 +43,19 @@ Currently, there are four layers of automation within the project:
 # Images and Charts
 
 | Name                                       | Docker                                                                                                                        | GitHub | Quay | Issues |
-|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------|:-------|:-----|:-------|
+| :----------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :----- | :--- | :----- |
 | `adaliszk/duplicity`                       | -                                                                                                                             | -      | -    | -      |
 | [`adaliszk/pocketbase`](images/pocketbase) | [![Pulls](https://img.shields.io/docker/pulls/adaliszk/pocketbase?label=Pulls)](https://hub.docker.com/r/adaliszk/pocketbase) | -      | -    | -      |
 
 # Packages
 
-| Name                                                    | NPM                                                                                                                                                             | Issues                                                                                                                                                                                                                                       |
-|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`@adaliszk/pulumi`](packages/pulumi)                   | [![NPM](https://img.shields.io/npm/v/@adaliszk/pulumi.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/pulumi)                   | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Apulumi)](https://github.com/adaliszk/infrastructure/labels/pulumi)                   |
-| [`@adaliszk/opsx`](packages/opsx)                       | [![NPM](https://img.shields.io/npm/v/@adaliszk/opsx.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/opsx)                       | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Aopsx)](https://github.com/adaliszk/infrastructure/labels/opsx)                       |
+| Name                                  | NPM                                                                                                                                           | Issues                                                                                                                                                                                                                     |
+| :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`@adaliszk/pulumi`](packages/pulumi) | [![NPM](https://img.shields.io/npm/v/@adaliszk/pulumi.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/pulumi) | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Apulumi)](https://github.com/adaliszk/infrastructure/labels/pulumi) |
+| [`@adaliszk/opsx`](packages/opsx)     | [![NPM](https://img.shields.io/npm/v/@adaliszk/opsx.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/opsx)     | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Aopsx)](https://github.com/adaliszk/infrastructure/labels/opsx)     |
 
 # Contributions
 
 While I'm always open to Pull-Requests, this project is mainly to store examples, and showcase them.
 Feel free to open a [discussion](https://github.com/adaliszk/infrastructure/discussions) if you have
 any questions or requests.
-

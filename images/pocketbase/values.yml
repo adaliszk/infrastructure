@@ -28,7 +28,7 @@ image:
   registry: docker.io
   repository: adaliszk
   name: pocketbase
-  tag: 0.17.5
+  tag: 0.20.2
   pullPolicy: IfNotPresent
 
 persistence:

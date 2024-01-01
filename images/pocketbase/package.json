@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.17.5",
+  "version": "0.20.2",
   "name": "pocketbase",
   "description": "Unofficial PocketBase SaaS backend prepared for secure kubernetes deployment",
   "homepage": "https://github.com/adaliszk/infrastructure",
@@ -8,14 +8,10 @@
   "author": "Ádám Liszkai <pocketbase@adaliszk.io>",
   "license": "BSD-3-Clause",
   "scripts": {
+    "build": "pnpm run build:image && pnpm run build:chart",
     "build:image": "opsx docker buildx build --platform linux/arm/v7,linux/arm64,linux/amd64 --tag adaliszk/pocketbase:^PKG_VERSION^ --tag adaliszk/pocketbase:latest  .",
     "build:chart": "opsx helm package . --dependency-update --version ^PKG_VERSION^",
     "push": "yarn build:image --push"
   },
-  "devDependencies": {
-    "@adaliszk/opsx": "^0.1.0"
-  },
-  "workspaces": [
-    "*"
-  ]
+  "devDependencies": { "@adaliszk/opsx": "workspace:*" }
 }

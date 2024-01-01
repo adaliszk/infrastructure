@@ -1,13 +1,5 @@
 {
   "extends": "@adaliszk/typescript",
-  "compilerOptions": {
-    "module": "CommonJS",
-    "sourceRoot": "source",
-    "baseUrl": "source",
-    "outDir": "dist"
-  },
-  "include": [
-    "pulumi.config.ts",
-    "source/**/*"
-  ]
+  "compilerOptions": { "module": "CommonJS", "sourceRoot": "source", "baseUrl": "source", "outDir": "dist" },
+  "include": ["pulumi.config.ts", "source/**/*"]
 }

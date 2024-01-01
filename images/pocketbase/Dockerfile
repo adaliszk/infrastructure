@@ -1,11 +1,10 @@
-FROM alpine:3.18 as downloader
+FROM alpine:3.18 AS downloader
 RUN apk --no-cache add 'wget>=1.21.4-r0' 'unzip>=6.0-r14' 'bash>=5.2.15-r5'
 SHELL ["/bin/bash", "-c"]
 
-
-FROM downloader as pocketbase-binary
+FROM downloader AS pocketbase-binary
 ARG PKG_MIRROR="https://github.com/pocketbase/pocketbase/releases/download"
-ARG PKG_VERSION="0.17.5"
+ARG PKG_VERSION="0.20.2"
 ARG TARGETPLATFORM
 
 RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
@@ -13,21 +12,17 @@ RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
  && unzip /tmp/pocketbase.zip -d /opt \
  && chmod +x /opt/pocketbase
 
-
-FROM downloader as livestream-binary
+FROM downloader AS livestream-binary
 ARG LIVESTREAM_MIRROR="https://github.com/benbjohnson/litestream/releases/download"
 ARG LIVESTREAM_VERSION="0.3.11"
 ARG TARGETPLATFORM
 
-
 RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
  && wget -O /tmp/pocketbase.zip ${PKG_MIRROR}/v${PKG_VERSION}/pocketbase_${PKG_VERSION}_${ARCH}.zip \
  && unzip /tmp/pocketbase.zip -d /opt \
  && chmod +x /opt/pocketbase
 
-
-
-FROM alpine:3.18 as pocketbase
+FROM alpine:3.18 AS pocketbase
 RUN apk --no-cache add 'bash>=5.2.15-r5'
 
 COPY --from=pocketbase-binary --chown=1001 /opt/pocketbase /opt/pocketbase
@@ -52,18 +47,17 @@ ARG PKG_LICENSE
 ARG PKG_HOMEPAGE
 ARG PKG_REPOSITORY
 ARG REF
-LABEL \
-  org.opencontainers.image.created="${TIMESTAMP}" \
-  org.opencontainers.image.title="${PKG_DESCRIPTION}" \
-  org.opencontainers.image.description="${PKG_DESCRIPTION}" \
-  org.opencontainers.image.authors="${PKG_AUTHOR}" \
-  org.opencontainers.image.license="${PKG_LICENSE}" \
-  org.opencontainers.image.url="${PKG_HOMEPAGE}" \
-  org.opencontainers.image.documentation="${PKG_HOMEPAGE}" \
-  org.opencontainers.image.source="${PKG_REPOSITORY}" \
-  org.opencontainers.image.version="${PKG_VERSION}" \
-  org.opencontainers.image.revision="${REF}" \
-  org.opencontainers.image.vendor="AdaLiszk"
+LABEL org.opencontainers.image.created="${TIMESTAMP}" \
+      org.opencontainers.image.title="${PKG_DESCRIPTION}" \
+      org.opencontainers.image.description="${PKG_DESCRIPTION}" \
+      org.opencontainers.image.authors="${PKG_AUTHOR}" \
+      org.opencontainers.image.license="${PKG_LICENSE}" \
+      org.opencontainers.image.url="${PKG_HOMEPAGE}" \
+      org.opencontainers.image.documentation="${PKG_HOMEPAGE}" \
+      org.opencontainers.image.source="${PKG_REPOSITORY}" \
+      org.opencontainers.image.version="${PKG_VERSION}" \
+      org.opencontainers.image.revision="${REF}" \
+      org.opencontainers.image.vendor="AdaLiszk"
 
 EXPOSE 8080
 VOLUME ["/data"]

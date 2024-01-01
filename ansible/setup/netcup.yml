@@ -1,6 +1,5 @@
 - name: "Netcup"
   hosts: "netcup"
   roles:
-    - private-domain
+    - custom-hostname
     - static-dns
-    - longhorn

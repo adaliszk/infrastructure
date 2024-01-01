@@ -20,23 +20,23 @@ plugin ecosystem.
    (pulumi is needed because the CLI expects it within the package.json)
 2. Create your configuration file `pulumi.config.ts`:
    ```typescript
-    import { defineConfig } from '@adaliszk/pulumi'
-    
-    export default defineConfig({
-        createNamespace: true, // or use string for a specific name
-        resources: [
-            // List your resources that implements `Component`
-        ]
-    })
+   import { defineConfig } from '@adaliszk/pulumi'
+
+   export default defineConfig({
+       createNamespace: true, // or use string for a specific name
+       resources: [
+           // List your resources that implements `Component`
+       ],
+   })
    ```
 3. Create Pulumi configuration file: `Pulumi.yaml`
    ```yaml
-    name: your-distribution
-    description: >-
-      An example pulumi distribution using @adaliszk configuration
-    
-    main: pulumi.config.ts
-    runtime: nodejs
+   name: your-distribution
+   description: >-
+     An example pulumi distribution using @adaliszk configuration
+
+   main: pulumi.config.ts
+   runtime: nodejs
    ```
 4. Use the Pulumi CLI: `pulumi up`
 
@@ -49,15 +49,17 @@ that then have access to the deployment configuration such as the created namesp
 Example:
 
 ```typescript
-import {StackConfig, Component, ComponentDeployment} from '@adaliszk/pulumi'
+import { Component, ComponentDeployment, StackConfig } from '@adaliszk/pulumi'
 
 export interface MyResourceOptions
 {
-    // Add your configuration 
+    // Add your configuration
 }
 
-export const myResource: Component = (options?: MyResourceOptions) => {
-    return (config: StackConfig) => {
+export const myResource: Component = (options?: MyResourceOptions) =>
+{
+    return (config: StackConfig) =>
+    {
         // Create your resources
         // Return an object for exporting
     }
