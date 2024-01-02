@@ -1,0 +1,9 @@
+{
+    "extends": "@adaliszk/typescript",
+    "compilerOptions": {
+        "baseUrl": "."
+    },
+    "include": [
+        "dagger.config.mts"
+    ]
+}

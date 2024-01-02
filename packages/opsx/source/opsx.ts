@@ -128,6 +128,7 @@ for (let [index, argument] of Object.entries(exec.args))
 
         argument = argument.replace(`^${key}^`, exec.env[key] ?? '')
 
+
     exec.args[Number(index)] = argument
 }
 

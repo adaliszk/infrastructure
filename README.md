@@ -22,6 +22,7 @@ with deep and accurate testing support.
 - [**flux**](https://fluxcd.io/flux/installation) as gitops automation for all environments
 - [**docker**](https://docs.docker.com/get-docker) for building custom images
 - [**pulumi**](https://www.pulumi.com/docs/get-started/install) for deployment automation
+- [**dagger**](https://dagger.io) for automation runner
 
 ## Structure
 
@@ -41,14 +42,14 @@ Currently, there are four layers of automation within the project:
 # Images and Charts
 
 | Name                                       | Docker                                                                                                                        | GitHub | Quay | Issues |
-|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------|:-------|:-----|:-------|
+| :----------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :----- | :--- | :----- |
 | `adaliszk/duplicity`                       | -                                                                                                                             | -      | -    | -      |
 | [`adaliszk/pocketbase`](images/pocketbase) | [![Pulls](https://img.shields.io/docker/pulls/adaliszk/pocketbase?label=Pulls)](https://hub.docker.com/r/adaliszk/pocketbase) | -      | -    | -      |
 
 # Packages
 
 | Name                                  | NPM                                                                                                                                           | Issues                                                                                                                                                                                                                     |
-|:--------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`@adaliszk/pulumi`](packages/pulumi) | [![NPM](https://img.shields.io/npm/v/@adaliszk/pulumi.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/pulumi) | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Apulumi)](https://github.com/adaliszk/infrastructure/labels/pulumi) |
 | [`@adaliszk/opsx`](packages/opsx)     | [![NPM](https://img.shields.io/npm/v/@adaliszk/opsx.svg?logo=npm&label=&style=flat-square)](https://www.npmjs.com/package/@adaliszk/opsx)     | [![Issues for ESLint](https://img.shields.io/github/issues-search?logo=github&label=&style=flat-square&query=repo%3Aadaliszk%2Finfrastructure%20label%3Aopsx)](https://github.com/adaliszk/infrastructure/labels/opsx)     |
 
