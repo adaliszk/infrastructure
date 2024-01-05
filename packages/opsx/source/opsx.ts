@@ -1,6 +1,6 @@
 'use strict'
 
-import * as child_process from 'node:child_process'
+import * as childProcess from 'node:child_process'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 import * as process from 'node:process'
@@ -47,9 +47,7 @@ const pkg = JSON.parse(fs.readFileSync(pkgFile).toString())
 
 for (const key of ['name', 'version', 'appVersion', 'description', 'homepage', 'bugs', 'license', 'repository'])
 
-    if (pkg[key])
-
-        collectedEnv[`PKG_${key.toUpperCase()}`] = pkg[key]
+    if (pkg[key]) collectedEnv[`PKG_${key.toUpperCase()}`] = pkg[key]
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -137,9 +135,6 @@ for (let [index, argument] of Object.entries(exec.args))
 
 console.log(`> ${exec.command} ${exec.args.join(' ')}`)
 
-child_process
-    .spawn(exec.command, exec.args, {
-        stdio: 'inherit',
-        env: exec.env,
-    })
+childProcess
+    .spawn(exec.command, exec.args, { stdio: 'inherit', env: exec.env })
     .on('close', (code) => process.exit(code ?? 1))

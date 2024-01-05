@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "version": "0.9.0",
+  "name": "@adaliszk/dagger",
+  "description": "",
+  "keywords": ["gitops", "cli", "automation"],
+  "repository": "gitlab:adaliszk/infrastructure",
+  "author": "Ádám Liszkai <adam@liszkai.dev>",
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "build": "tsup source/bundle.ts --clean --format esm --sourcemap --minify --dts",
+    "fmt": "dprint fmt && eslint . --fix"
+  },
+  "dependencies": { "@dagger.io/dagger": "^0.9.5" },
+  "files": ["dist/*", "*.md"],
+  "types": "dist/bundle.d.mts",
+  "main": "dist/bundle.mjs"
+}
