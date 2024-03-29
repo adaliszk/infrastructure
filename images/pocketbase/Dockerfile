@@ -1,4 +1,4 @@
-FROM alpine:3.18 AS downloader
+FROM alpine:3 AS downloader
 RUN apk --no-cache add 'wget>=1.21.4-r0' 'unzip>=6.0-r14' 'bash>=5.2.15-r5'
 SHELL ["/bin/bash", "-c"]
 
@@ -22,7 +22,7 @@ RUN export ARCH="${TARGETPLATFORM/\//_}" && export ARCH="${ARCH/\/v7/v7}" \
  && unzip /tmp/pocketbase.zip -d /opt \
  && chmod +x /opt/pocketbase
 
-FROM alpine:3.18 AS pocketbase
+FROM alpine:3 AS pocketbase
 RUN apk --no-cache add 'bash>=5.2.15-r5'
 
 COPY --from=pocketbase-binary --chown=1001 /opt/pocketbase /opt/pocketbase
